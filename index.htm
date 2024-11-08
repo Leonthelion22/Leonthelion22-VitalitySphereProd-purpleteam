@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vitality Sphere - [Page Title]</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <img src="logo.png" alt="Vitality Sphere Logo" class="logo">
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="articles.html">Articles</a></li>
+                <li><a href="services.html">Services</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="home">
+        <h1>Welcome to Vitality Sphere</h1>
+        <p>Your guide to a healthier lifestyle.</p>
+        <img src="hero-image.jpg" alt="Healthy Living" class="hero">
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Vitality Sphere. All rights reserved.</p>
+    </footer>
+
+    <!-- JavaScript for logging page visits to API Gateway -->
+    <script>
+        // Log page visit to API Gateway
+        async function logVisit() {
+            const pageUrl = encodeURIComponent(window.location.href);
+            const apiUrl = "https://yk2n9x513k.execute-api.us-east-1.amazonaws.com/log-visits"; // Replace with your actual API Gateway URL
+
+            try {
+                // Send a GET request to API Gateway with the page URL
+                await fetch(`${apiUrl}?url=${pageUrl}`);
+            } catch (error) {
+                console.error("Failed to log visit:", error);
+            }
+        }
+
+        // Call logVisit when the page loads
+        window.onload = logVisit;
+    </script>
+</body>
+</html>
